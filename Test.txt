@@ -4,7 +4,8 @@ dan mencoba mencari tahu perbedaan pemakaian git fetch dengan git pull
 
 LIst bahasa pemrograman :
 1. Go
-2. Javascript
+2. Php
 3. JAva
 4. Ruby
-5. Vb.net
+5. JAva
+6. TEst
