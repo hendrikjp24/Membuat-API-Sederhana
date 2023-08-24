@@ -1,3 +1,10 @@
 Ini Adalahtesting pertama kali untuk melihat config git.
 
 dan mencoba mencari tahu perbedaan pemakaian git fetch dengan git pull
+
+LIst bahasa pemrograman :
+1. PHP
+2. Javascript
+3. Ruby
+4. GO
+5. JAva
