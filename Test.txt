@@ -1,1 +1,3 @@
-Ini merupakan testing pertama kali untuk melihat config git.
+Ini Adalahtesting pertama kali untuk melihat config git.
+
+dan mencoba mencari tahu perbedaan pemakaian git fetch dengan git pull
