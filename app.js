@@ -41,11 +41,58 @@ app.get("/read-data", async (req, res)=>{
 
 })
 
+//api to get data by name
+app.get("/readDataByName/", async (req, res) => {
+    
+    try {
+        console.log(req.query);
+        await mahasiswa.find({name: req.query.name}).then(result => {
+            res.json({
+                status: 200,
+                message: "Read Data Mahasiswa By Name Success",
+                data : result
+            });
+        });
+        
+    } catch (error) {
+        res.json({
+            status: 400,
+            message: "Read Data Error",
+            error
+        });
+
+    }
+    
+})
+
+//api to get data by filterbyname 
+app.get("/readDataByFilterName", async (req, res) => {
+    try {
+        // $regex => untuk membuat regex di mongodb
+        //$options => digunakkan untuk memberikan option ke regex yang telah dibuat.
+        // 'i' => adalah option untuk mengabaikan case sensitive yang dimasukkan
+        await mahasiswa.find({name : {$regex: req.query.name, $options: 'i'}}).then(result =>{
+            res.json({
+                status: 200,
+                message: "Read Data By Filtering Name Success",
+                data : result
+            });
+        });
+        
+    } catch (error) {
+        res.json({
+            status: 400,
+            message: "Error to read data",
+            error
+        });
+
+    }
+})
 
 //API TO ADD DATA
 app.post("/add-mahasiswa", async (req, res)=>{
     try {
-        await mahasiswa.insertMany([req.body]).then(result => {
+        await mahasiswa.insertMany(req.body).then(result => {
             console.log(JSON.stringify(req.body));
 
             res.json({
@@ -56,7 +103,11 @@ app.post("/add-mahasiswa", async (req, res)=>{
 
         });
     } catch (error) {
-        console.log(error);
+        res.json({
+            status: 400,
+            message: "Data mahasiswa gagal ditambahkan",
+            error
+        })
     }
 })
 
