@@ -6,7 +6,11 @@ const methodOverride = require("method-override");
 
 //setting express
 app.use(express.urlencoded({extended : true}));
+
+// supaya bisa mengelola json
 app.use(express.json());
+
+// supaya bisa melakukan method override put and delete
 app.use(methodOverride('_method'));
 
 
