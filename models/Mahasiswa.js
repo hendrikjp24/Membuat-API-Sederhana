@@ -4,12 +4,12 @@ const schemaMahasiswa = new mongoose.Schema({
     name : String,
     age : Number,
     jurusan : String,
-    contact : [{
+    contact : {
         email : String,
         noHp : String
-    }]
+    }
 })
 
 const mahasiswa = new mongoose.model('Mahasiswa', schemaMahasiswa);
 
-module.exports = {mahasiswa};
+module.exports = mahasiswa;
