@@ -111,7 +111,26 @@ app.post("/add-mahasiswa", async (req, res)=>{
     }
 })
 
+//API to delete data by id
+app.delete("/deletDataMahasiswa", async (req, res) => {
+    try {
+        await mahasiswa.deleteOne({_id : req.query.id}).then(result => {
+            res.json({
+                status: 200,
+                message: "Data Mahasiswa Berhasil Di Delete",
+                data: result
+            });
+        });
 
+    } catch (error) {
+        res.json({
+            status: 400,
+            message: "Error delete data",
+            error
+        });
+    }
+
+})
 
 app.listen(port, ()=>{
     console.log(`Web Service running on http:localhost:${port}`);
