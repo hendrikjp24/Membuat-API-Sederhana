@@ -1,11 +1,5 @@
-Ini Adalahtesting pertama kali untuk melihat config git.
+Untuk membuat api sederhana hanya membutuhkan beberapa package saja,
 
-dan mencoba mencari tahu perbedaan pemakaian git fetch dengan git pull
-
-LIst bahasa pemrograman :
-1. Go
-2. Php
-3. JAva
-4. Ruby
-5. Vb.net
-6. TEst
+1. Express => package yang nantinya kaan berperan sebagai web server
+2. mongoose => package agar dapat terhubung dengan database mongodb
+3. method_override => package yang digunakan agar dapat menggunakan method put or delete
