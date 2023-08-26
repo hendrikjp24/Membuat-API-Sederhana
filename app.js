@@ -161,6 +161,19 @@ app.put("/updateData", async (req, res) => {
 
 })
 
+// Tidak Harus memproses promise untuk mendapatkan datanya, dengan menggunakan async await,
+// kita dapat langsung menampung datanya pada sebuah variabel
+app.get("/", async (req, res) => {
+    const data = await mahasiswa.find();
+
+    res.json({
+        status: 200,
+        message: "Read Data Success1",
+        data
+    });
+
+})
+
 app.listen(port, ()=>{
     console.log(`Web Service running on http:localhost:${port}`);
 })
