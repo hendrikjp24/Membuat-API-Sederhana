@@ -132,6 +132,35 @@ app.delete("/deletDataMahasiswa", async (req, res) => {
 
 })
 
+//API to edit data by id
+app.put("/updateData", async (req, res) => {
+    try {
+
+        // update data by id
+       await mahasiswa.findByIdAndUpdate({_id : req.query.id}, req.body);
+
+       // membaca ulang data berdasarkan id, sehingga data terbaru yang akan di kirimkan
+       await mahasiswa.findById({_id : req.query.id}).then(result => {
+        res.json({
+            status: 200,
+            message: "Data berhasil di update",
+            data : result
+        });
+       })
+
+        
+    } catch (error) {
+        res.status(400);
+        res.json({
+            status: 400,
+            message: "Proses Update Error",
+            error : error.message
+        });
+        
+    }
+
+})
+
 app.listen(port, ()=>{
     console.log(`Web Service running on http:localhost:${port}`);
 })
